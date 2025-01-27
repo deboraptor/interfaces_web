@@ -2,7 +2,7 @@ import requests
 from config import Config
 
 ACCESS_TOKEN = Config.ACCESS_TOKEN
-ZENODO_SANDBOX_API = Config.ZENODO_SANDBOX_API
+ZENODO_API = Config.ZENODO_API
 
 def create_deposit(title, author):
     headers = {"Content-Type": "application/json"}
