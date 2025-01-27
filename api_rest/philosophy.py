@@ -27,8 +27,10 @@ import requests
 import wikitextparser as wtp
 import time
 
-WIKI_API_URL = "https://en.wikipedia.org/w/api.php"
-PHILOSOPHY = "Philosophy"
+from config import Config
+
+WIKI_API_URL = Config.WIKI_API_URL
+PHILOSOPHY = Config.PHILOSOPHY
 
 def get_pages_revisions(title):
     """ Vérifie si la page existe et récupère son le titre et le contenu """
