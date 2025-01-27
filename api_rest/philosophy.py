@@ -1,15 +1,3 @@
-## 1
-# voir si la page existe sur wikipédia
-# y'a une API ! et gratuite
-# -> wikitextparser
-## 2
-# il faut prendre un autre lien, mais faut qu'il soit valide ! 
-# donc test http code = 200
-## 3
-# compter combien de liens on a pour philosophy
-## 4
-# afficher le nombre de liens qu'on a parcouru !
-
 """
 - Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia et donne 
   le nombre de sauts nécessaire pour arriver à la page
@@ -64,6 +52,12 @@ def nettoyage_scraping(wikitext):
 
     if not text_blocks:
         return None 
+    
+    # on supprime le contenu entre parenthèses
+    cleaned_text = re.sub(r"\([^()]*\)", "", text_blocks[0])
+
+    # et le texte en italique ! ex: ''Texte''
+    cleaned_text = re.sub(r"''(.*?)''", "", cleaned_text)
 
     return text_blocks[0] 
 
@@ -76,6 +70,7 @@ def extraction_premier_lien(wikitext):
 
         # on skip les fichiers et le reste sinon ça bug
         if title.startswith(("File:", "Image:", "Media:", "Special:", "Help:", "Wikipedia:")):
+            print(f"🚫 Ignoré (fichier/spécial) : {title}")
             continue
 
         return title  
