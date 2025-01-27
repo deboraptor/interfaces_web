@@ -1,3 +1,4 @@
+import os
 import requests
 from config import Config
 
@@ -30,6 +31,10 @@ def upload_file(deposit_id, file_path):
     params = {"access_token": ACCESS_TOKEN}
     files_url = f"{ZENODO_API}/{deposit_id}/files"
 
+    if not os.path.isfile(file_path):
+        print(f"❌ Erreur : le fichier '{file_path}' n'existe pas. Vérifie le chemin !")
+        return
+
     with open(file_path, "rb") as file:
         files = {"file": (file_path, file)}
         response = requests.post(files_url, params=params, files=files)
@@ -54,6 +59,9 @@ def publish_deposit(deposit_id):
 file_path = input("Nom du fichier à déposer : ")
 title = input("Titre du dépôt : ")
 author = input("Nom de l'auteurice : ")
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, file_path)
 
 print("\n📌 Création du dépôt...")
 deposit_id = create_deposit(title, author)
