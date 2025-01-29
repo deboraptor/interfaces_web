@@ -11,13 +11,13 @@ Les trois devoirs sont les suivants :
 Je détaille en dessous chaque projet individuellement. 
 
 ## Cheeseshop
-Le but de cet exercice est de scraper l'[API de PyPI](https://docs.pypi.org/api/json/). On entre un paquet python et on récupère le nom et le mail des auteurs, puis la date de release du paquet.
+Le but de cet exercice est de scraper l'[API de PyPI](https://docs.pypi.org/api/json/). On entre un paquet python ren input et on récupère le nom et le mail des auteurs, puis la date de release du paquet.
 
 ## Zenodo
 <!-- LTeX: language=en-GB -->
 > Fichier associé : `fichier.txt`
 <!-- LTeX: language=en-GB -->
-
+Ici, on entre un fichier à poster via l'API de Zenodo. Le fichier à utiliser est déjà présent dans le git. La chose à rajouter, c'est le nom du dépôt et le nom de la personne qui le crée. Les dépôts sur Zenodo sont postés de manière temporaires, pour pouvoir tester l'API.
 
 ## Wikipedia trivia
 Selon un bruit de couloir, il semblerait que si on clique sur le premier lien de n'importe quel article wikipédia à l'infini, on arrive forcément sur la page "philosophie".
